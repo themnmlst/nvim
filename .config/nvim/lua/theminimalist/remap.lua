@@ -64,3 +64,5 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 --  the cursor's line is always centered on the screen after moving to the next or previous search result, and by automatically unfolding any folded text that contains a search result.
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
