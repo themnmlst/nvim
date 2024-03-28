@@ -83,6 +83,7 @@ return { -- Autocompletion
 				end, { "i", "s" }),
 			}),
 			sources = {
+				{ name = "friendly_snippets" },
 				{ name = "luasnip" },
 				{ name = "nvim_lsp" },
 				{ name = "path" },
