@@ -61,8 +61,25 @@ vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
---  the cursor's line is always centered on the screen after moving to the next or previous search result, and by automatically unfolding any folded text that contains a search result.
+-- The cursor's line is always centered on the screen after moving to the next or previous search result, and by automatically unfolding any folded text that contains a search result.
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
+-- Execute the chmod +x command on the current file, making it executable, and it will do so silently.
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+
+-- Trigger the code formatting functionality provided by the language server associated with the current buffer, if available.
+vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, { desc = "LSP: format" })
+
+-- Replacing all occurrences of the word under the cursor with the contents of the default register, while preserving the original case.
+vim.keymap.set(
+	"n",
+	"<leader>rw",
+	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+	{ desc = "Replace word in register" }
+)
+-- It yanks the selected text into the system clipboard.
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+
+-- Yanks the current line into the system clipboard.
+vim.keymap.set("n", "<leader>Y", [["+Y]])
