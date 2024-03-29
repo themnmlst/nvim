@@ -83,3 +83,5 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 
 -- Yanks the current line into the system clipboard.
 vim.keymap.set("n", "<leader>Y", [["+Y]])
+
+vim.keymap.set("n", "<leader>fml", "<cmd>CellularAutomaton game_of_life<CR>")
