@@ -39,7 +39,7 @@ keymap.set("n", "Q", "<nop>", { desc = "Disable Q key" })
 keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { desc = "Open tmux sessionizer" })
 
 -- Format buffer with LSP
-keymap.set("n", "<leader>f", vim.lsp.buf.format, { desc = "Format buffer with LSP" })
+-- keymap.set("n", "<leader>f", vim.lsp.buf.format, { desc = "Format buffer with LSP" })
 
 -- Navigate quickfix and location lists
 keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz", { desc = "Next item in quickfix list" })

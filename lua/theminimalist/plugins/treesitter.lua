@@ -2,13 +2,15 @@ return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
 	config = function()
-		require 'nvim-treesitter.install'.compilers = { "gcc" },
+		require 'nvim-treesitter.install'.compilers = { "llvm" },
 		require("nvim-treesitter.configs").setup({
 			-- A list of parser names, or "all"
 			ensure_installed = {
 				"vimdoc",
 				"lua",
 				"markdown_inline",
+        "cpp",
+        "python",
 			},
 
 			-- Install parsers synchronously (only applied to `ensure_installed`)

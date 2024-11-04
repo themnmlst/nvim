@@ -32,8 +32,9 @@ return {
 			ensure_installed = {
 				"lua_ls",
 				"clangd",
-				"tsserver",
+				"ts_ls",
 				"marksman",
+        "pylsp",
 			},
 			handlers = {
 				function(server_name) -- default handler (optional)
@@ -86,8 +87,8 @@ return {
 				"stylua", -- lua formatter
 				"eslint_d", -- js linter
 				"pylint",
-				"isort",
 				"markdownlint",
+        "black",
 			},
 		})
 

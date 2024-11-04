@@ -1,5 +1,5 @@
 function ColorMyPencils(color)
-	color = color or "tokyonight"
+	color = color or "kanagawa-dragon"
 	vim.cmd.colorscheme(color)
 
 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
@@ -51,4 +51,9 @@ return {
 			vim.cmd([[colorscheme aura-dark]])
 		end,
 	},
+  {
+    "https://github.com/rebelot/kanagawa.nvim.git",
+    config = function()
+    end,
+  },
 }
