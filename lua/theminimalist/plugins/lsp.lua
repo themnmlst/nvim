@@ -1,7 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
-
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		"hrsh7th/cmp-nvim-lsp",
@@ -11,7 +10,6 @@ return {
 		"hrsh7th/nvim-cmp",
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
-		"j-hui/fidget.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 	},
 
@@ -26,18 +24,14 @@ return {
 		)
 		local mason_tool_installer = require("mason-tool-installer")
 
-		require("fidget").setup({})
 		require("mason").setup()
 		require("mason-lspconfig").setup({
 			ensure_installed = {
 				"lua_ls",
 				"clangd",
-				"ts_ls",
-				"marksman",
-        "pylsp",
 			},
 			handlers = {
-				function(server_name) -- default handler (optional)
+				function(server_name)
 					require("lspconfig")[server_name].setup({
 						capabilities = capabilities,
 					})
@@ -59,12 +53,19 @@ return {
 			},
 		})
 
+		mason_tool_installer.setup({
+			ensure_installed = {
+				"stylua",
+			},
+		})
+
+
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
 		cmp.setup({
 			snippet = {
 				expand = function(args)
-					require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
+					require("luasnip").lsp_expand(args.body)
 				end,
 			},
 			mapping = cmp.mapping.preset.insert({
@@ -75,25 +76,13 @@ return {
 			}),
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
-				{ name = "luasnip" }, -- For luasnip users.
+				{ name = "luasnip" },
 				{ name = "buffer" },
 				{ name = "path" },
 			}, {}),
 		})
 
-		mason_tool_installer.setup({
-			ensure_installed = {
-				"prettier", -- prettier formatter
-				"stylua", -- lua formatter
-				"eslint_d", -- js linter
-				"pylint",
-				"markdownlint",
-        "black",
-			},
-		})
-
 		vim.diagnostic.config({
-			-- update_in_insert = true,
 			float = {
 				focusable = false,
 				style = "minimal",
