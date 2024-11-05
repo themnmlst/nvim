@@ -16,6 +16,5 @@ return {
 			"<cmd>lua require('conform').format({async = true})<CR>",
 			{ noremap = true, silent = true }
 		)
-
 	end,
 }

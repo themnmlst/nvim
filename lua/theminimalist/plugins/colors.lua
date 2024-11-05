@@ -6,10 +6,10 @@ function ColorMyPencils(color)
 end
 
 return {
-  {
-    "https://github.com/rebelot/kanagawa.nvim.git",
-    config = function()
+	{
+		"https://github.com/rebelot/kanagawa.nvim.git",
+		config = function()
 			ColorMyPencils()
-    end,
-  },
+		end,
+	},
 }
